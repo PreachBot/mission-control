@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { DndContext, DragEndEvent, DragOverlay, DragStartEvent, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { SortableContext, arrayMove } from '@dnd-kit/sortable';
-import { Plus, Target, Zap } from 'lucide-react';
+import { Plus, Target, Zap, BookOpen } from 'lucide-react';
+import Link from 'next/link';
 import Column from './components/Column';
 import Card from './components/Card';
 import AddCardModal from './components/AddCardModal';
@@ -195,13 +196,22 @@ export default function Home() {
                 <p className="text-purple-300 text-sm">Team: George & PreachBot</p>
               </div>
             </div>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-medium transition-colors"
-            >
-              <Plus className="w-5 h-5" />
-              New Task
-            </button>
+            <div className="flex items-center gap-3">
+              <Link
+                href="/memory"
+                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors"
+              >
+                <BookOpen className="w-5 h-5" />
+                Memory Bank
+              </Link>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-medium transition-colors"
+              >
+                <Plus className="w-5 h-5" />
+                New Task
+              </button>
+            </div>
           </div>
         </div>
       </header>
