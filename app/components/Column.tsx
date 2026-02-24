@@ -3,14 +3,15 @@
 import { useDroppable } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import Card from './Card';
-import { ColumnType } from '../page';
+import { ColumnType, CardType } from '../page';
 
 type ColumnProps = {
   column: ColumnType;
   onDelete: (cardId: string) => void;
+  onEdit?: (cardId: string, updates: Partial<CardType>) => void;
 };
 
-export default function Column({ column, onDelete }: ColumnProps) {
+export default function Column({ column, onDelete, onEdit }: ColumnProps) {
   const { setNodeRef } = useDroppable({
     id: column.id,
   });
@@ -35,7 +36,12 @@ export default function Column({ column, onDelete }: ColumnProps) {
           strategy={verticalListSortingStrategy}
         >
           {column.cards.map((card) => (
-            <Card key={card.id} card={card} onDelete={onDelete} />
+            <Card 
+              key={card.id} 
+              card={card} 
+              onDelete={onDelete}
+              onEdit={onEdit}
+            />
           ))}
         </SortableContext>
       </div>
