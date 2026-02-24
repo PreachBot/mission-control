@@ -194,6 +194,17 @@ export default function Home() {
     );
   };
 
+  const handleEditCard = (cardId: string, updates: Partial<CardType>) => {
+    setColumns((cols) =>
+      cols.map((col) => ({
+        ...col,
+        cards: col.cards.map((card) =>
+          card.id === cardId ? { ...card, ...updates } : card
+        ),
+      }))
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
