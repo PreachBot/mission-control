@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { DndContext, DragEndEvent, DragOverlay, DragStartEvent, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { SortableContext, arrayMove } from '@dnd-kit/sortable';
-import { Plus, Target, Zap, BookOpen } from 'lucide-react';
+import { Plus, Target, Zap, BookOpen, Wine } from 'lucide-react';
 import Link from 'next/link';
 import Column from './components/Column';
 import Card from './components/Card';
@@ -208,6 +208,13 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center gap-3">
+              <Link
+                href="/wine"
+                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors"
+              >
+                <Wine className="w-5 h-5" />
+                Wine
+              </Link>
               <Link
                 href="/memory"
                 className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors"
